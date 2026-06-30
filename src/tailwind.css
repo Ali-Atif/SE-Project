@@ -459,7 +459,7 @@
   }
 
   .admin-sidebar-link:hover {
-    @apply -translate-x-0;
+    @apply translate-x-0;
   }
 
   .admin-sidebar-link-active {
@@ -622,7 +622,7 @@
   }
 
   .landing-mobile-drawer {
-    @apply fixed top-0 right-0 z-205 flex h-dvh w-[min(20rem,88vw)] flex-col overflow-y-auto overscroll-contain border-l border-border bg-surface/95 backdrop-blur-xl transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] lg:hidden;
+    @apply fixed top-0 right-0 z-205 flex h-dvh w-[min(20rem,88vw)] flex-col overflow-y-auto overscroll-contain border-l border-border bg-surface/95 backdrop-blur-xl transition-transform duration-300 ease-in-out lg:hidden;
     padding-top: calc(var(--spacing-navbar) + env(safe-area-inset-top) + 1.5rem);
     padding-right: 1.5rem;
     padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
@@ -647,7 +647,7 @@
   }
 
   .admin-table {
-    @apply w-full min-w-[36rem] border-collapse text-sm;
+    @apply w-full min-w-xl border-collapse text-sm;
   }
 
   .admin-table thead th {
