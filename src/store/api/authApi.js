@@ -1,5 +1,5 @@
 import { baseApi } from '@/store/api/baseApi'
-import { setCredentials, clearCredentials, setInitialized } from '@/redux/slices'
+import { setCredentials, clearCredentials, setInitialized } from '@/features/auth'
 import { setAuthSession, clearAuthSession } from '@/services/storage/authStorage'
 
 export const authApi = baseApi.injectEndpoints({
@@ -20,7 +20,7 @@ export const authApi = baseApi.injectEndpoints({
           // Mutation error handled by the calling component
         }
       },
-      invalidatesTags: ['Dashboard'],
+      invalidatesTags: ['User'],
     }),
 
     register: builder.mutation({
@@ -45,7 +45,7 @@ export const authApi = baseApi.injectEndpoints({
           dispatch(baseApi.util.resetApiState())
         }
       },
-      invalidatesTags: ['User', 'Dashboard'],
+      invalidatesTags: ['User'],
     }),
 
     getMe: builder.query({

@@ -1,1 +1,1 @@
-export { store } from '@/app/store'
+export { store } from './store'

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useAppSelector } from '@/hooks'
-import { selectIsAuthenticated, selectCurrentUser } from '@/redux/slices'
-import { LANDING_NAV_LINKS, ROUTE_SECTIONS, isLandingPath, scrollToSection } from '@/components/landing/landingNavigation'
+import { selectIsAuthenticated, selectCurrentUser } from '@/features/auth'
+import { LANDING_NAV_LINKS, navigateToLandingSection } from '@/components/landing/landingNavigation'
 import { LogoIcon, MenuIcon, CloseIcon } from '@/shared/ui'
 import { UserAvatar } from '@/components/common'
 import { ROUTES } from '@/shared/constants/routes'
@@ -33,13 +33,7 @@ function LandingNavLinks({ onNavigate }) {
 
   const handleSectionNavClick = (to) => {
     onNavigate()
-
-    if (isLandingPath(location.pathname) && location.pathname === to) {
-      const sectionId = ROUTE_SECTIONS[to]
-      if (sectionId) {
-        scrollToSection(sectionId)
-      }
-    }
+    navigateToLandingSection(location.pathname, to)
   }
 
   return (
@@ -89,10 +83,12 @@ export default function Navbar() {
   const isAuthenticated = useAppSelector(selectIsAuthenticated)
   const user = useAppSelector(selectCurrentUser)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [lastPath, setLastPath] = useState(location.pathname)
 
-  useEffect(() => {
+  if (location.pathname !== lastPath) {
+    setLastPath(location.pathname)
     setMenuOpen(false)
-  }, [location.pathname])
+  }
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''

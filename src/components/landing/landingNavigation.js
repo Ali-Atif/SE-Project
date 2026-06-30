@@ -1,6 +1,6 @@
-import { LANDING_PATHS } from '@/shared/constants/routes'
+import { LANDING_PATHS, ROUTE_SECTIONS } from '@/shared/constants/routes'
 
-export { LANDING_NAV_LINKS, LANDING_PATHS, ROUTE_SECTIONS } from '@/shared/constants/routes'
+export { LANDING_NAV_LINKS, ROUTE_SECTIONS } from '@/shared/constants/routes'
 
 export function isLandingPath(pathname) {
   return LANDING_PATHS.includes(pathname)
@@ -54,6 +54,15 @@ export function scrollToSection(sectionId) {
   }
 
   activeScrollFrame = requestAnimationFrame(step)
+}
+
+export function navigateToLandingSection(pathname, to) {
+  if (isLandingPath(pathname) && pathname === to) {
+    const sectionId = ROUTE_SECTIONS[to]
+    if (sectionId) {
+      scrollToSection(sectionId)
+    }
+  }
 }
 
 export function isSectionInView(sectionId, tolerance = 80) {

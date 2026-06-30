@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Bell, Shield, Palette, User } from 'lucide-react'
 import { useAppSelector } from '@/hooks'
 import { selectUserProfile } from '@/features/user'
-import { selectCurrentUser } from '@/redux/slices'
+import { selectCurrentUser } from '@/features/auth'
 import { PageHeader } from '@/components/dashboard'
 import { ROUTES } from '@/shared/constants/routes'
 

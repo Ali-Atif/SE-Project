@@ -1,14 +1,16 @@
 # SE Project
 
-A React + Redux Toolkit frontend demo with mock authentication, protected routes, and shared auth state.
+A React + Redux Toolkit frontend demo with mock authentication, protected routes, and a responsive admin dashboard.
 
 ## Stack
 
 - **Vite** — build tool
-- **React 18** — UI
-- **Redux Toolkit** — state management
-- **React Router v6** — client-side routing
-- **Plain CSS** — global design system (no Tailwind)
+- **React 19** — UI
+- **Redux Toolkit** — state management (RTK Query for API)
+- **React Router v7** — client-side routing
+- **Tailwind CSS v4** — styling
+- **Recharts** — dashboard charts
+- **Lucide React** — icons
 
 ## Setup
 
@@ -22,33 +24,43 @@ Open the URL shown in the terminal (typically `http://localhost:5173`).
 ## Demo flow
 
 1. **Register** — create an account at `/register` (password min 6 characters)
-2. **Auto-login** — after registration you are redirected to `/dashboard`
-3. **Profile** — visit `/profile` to see user info from Redux state
-4. **Logout** — use the navbar Logout button
-5. **Login** — sign back in at `/login` with your credentials
+2. **Login** — sign in at `/login` with your credentials
+3. **Dashboard** — explore stats, charts, and activity at `/dashboard`
+4. **Profile** — visit `/profile` to see user info from Redux state
+5. **Logout** — use the profile page logout button
 6. **Refresh** — auth persists via `localStorage` until you log out
 
 ## Routes
 
 | Path | Access |
 |------|--------|
-| `/` | Public |
-| `/about` | Public |
-| `/contact` | Public |
-| `/login` | Guests only (redirects to dashboard if logged in) |
+| `/home` | Public (landing) |
+| `/about` | Public (landing section) |
+| `/contact` | Public (landing section) |
+| `/login` | Guests only |
 | `/register` | Guests only |
 | `/dashboard` | Protected |
+| `/users` | Protected |
+| `/analytics` | Protected |
+| `/settings` | Protected |
 | `/profile` | Protected |
 
 ## Project structure
 
 ```
 src/
-├── app/           # Redux store and hooks
-├── features/auth/ # Auth slice and thunks
-├── components/    # Layout and routing guards
-├── pages/         # Route pages
-└── utils/         # localStorage helpers
+├── components/     # UI components (common, dashboard, landing, error)
+├── config/         # Environment and API configuration
+├── data/           # Static mock data for dashboards
+├── features/       # Redux slices by domain (auth, dashboard, sidebar, user)
+├── hooks/          # Custom React hooks
+├── layouts/        # Page layouts (main, auth, dashboard)
+├── pages/          # Route pages (auth, dashboard, landing)
+├── providers/      # App-level providers (auth initializer)
+├── routes/         # Route config and guards
+├── services/       # Storage, mocks, error helpers
+├── shared/         # Constants, utilities, reusable UI primitives
+└── store/          # Redux store, middleware, RTK Query APIs
 ```
 
 ## Scripts

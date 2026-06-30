@@ -16,15 +16,7 @@ const initialState = {
 const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {
-    setUserProfile(state, action) {
-      state.profile = { ...state.profile, ...action.payload }
-    },
-    clearNotifications(state) {
-      state.notifications = 0
-    },
-  },
+  reducers: {},
 })
 
-export const { setUserProfile, clearNotifications } = userSlice.actions
 export default userSlice.reducer

@@ -15,9 +15,6 @@ const sidebarSlice = createSlice({
     setSidebarOpen(state, action) {
       state.isOpen = action.payload
     },
-    openMobileSidebar(state) {
-      state.isMobileOpen = true
-    },
     closeMobileSidebar(state) {
       state.isMobileOpen = false
     },
@@ -30,7 +27,6 @@ const sidebarSlice = createSlice({
 export const {
   toggleSidebar,
   setSidebarOpen,
-  openMobileSidebar,
   closeMobileSidebar,
   toggleMobileSidebar,
 } = sidebarSlice.actions

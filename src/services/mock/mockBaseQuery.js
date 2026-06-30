@@ -75,23 +75,6 @@ const handlers = {
     return { data: session.user }
   },
 
-  'GET /dashboard/stats': async () => {
-    await delay(400)
-
-    const session = getAuthSession()
-    if (!session) {
-      return apiError(401, 'Unauthorized')
-    }
-
-    return {
-      data: {
-        accountStatus: 'Active',
-        sessionStatus: 'Saved',
-        profileStatus: 'Ready',
-      },
-    }
-  },
-
   'POST /contact': async (body) => {
     await delay(600)
 

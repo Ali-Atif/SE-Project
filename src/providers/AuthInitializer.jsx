@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo } from 'react'
 import { useAppDispatch, useAppSelector } from '@/hooks'
 import {
   setCredentials,
@@ -6,7 +6,7 @@ import {
   setInitialized,
   selectAuthToken,
   selectIsAuthInitialized,
-} from '@/redux/slices'
+} from '@/features/auth'
 import { useGetMeQuery } from '@/store/api'
 import { getAuthSession, clearAuthSession } from '@/services/storage/authStorage'
 
@@ -14,27 +14,24 @@ export default function AuthInitializer({ children }) {
   const dispatch = useAppDispatch()
   const token = useAppSelector(selectAuthToken)
   const isInitialized = useAppSelector(selectIsAuthInitialized)
-
-  const [shouldValidateStoredSession, setShouldValidateStoredSession] = useState(
-    () => Boolean(getAuthSession())
-  )
+  const storedSession = useMemo(() => getAuthSession(), [])
 
   useEffect(() => {
-    const session = getAuthSession()
-
-    if (session) {
-      dispatch(setCredentials({ user: session.user, token: session.token }))
+    if (storedSession) {
+      dispatch(setCredentials({ user: storedSession.user, token: storedSession.token }))
     } else {
       dispatch(setInitialized())
     }
-  }, [dispatch])
+  }, [dispatch, storedSession])
+
+  const needsMeValidation = Boolean(token) && Boolean(storedSession) && !isInitialized
 
   const { isFetching, isError, isUninitialized } = useGetMeQuery(token, {
-    skip: !token || !shouldValidateStoredSession,
+    skip: !needsMeValidation,
   })
 
   useEffect(() => {
-    if (!shouldValidateStoredSession || !token) return
+    if (!needsMeValidation) return
     if (isUninitialized || isFetching) return
 
     if (isError) {
@@ -42,16 +39,8 @@ export default function AuthInitializer({ children }) {
       clearAuthSession()
     }
 
-    setShouldValidateStoredSession(false)
     dispatch(setInitialized())
-  }, [
-    shouldValidateStoredSession,
-    token,
-    isFetching,
-    isError,
-    isUninitialized,
-    dispatch,
-  ])
+  }, [needsMeValidation, isFetching, isError, isUninitialized, dispatch])
 
   if (!isInitialized) {
     return (

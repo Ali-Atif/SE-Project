@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useAppSelector } from '@/hooks'
-import { selectIsAuthenticated } from '@/redux/slices'
+import { selectIsAuthenticated } from '@/features/auth'
+import { ROUTES } from '@/shared/constants/routes'
 
 export default function HeroSection() {
   const isAuthenticated = useAppSelector(selectIsAuthenticated)
@@ -37,15 +38,15 @@ export default function HeroSection() {
 
           <div className="mb-12 flex flex-wrap justify-center gap-4 max-[480px]:w-full max-[480px]:flex-col lg:justify-start">
             {isAuthenticated ? (
-              <Link to="/dashboard" className="btn btn-primary btn-lg max-[480px]:w-full">
+              <Link to={ROUTES.DASHBOARD} className="btn btn-primary btn-lg max-[480px]:w-full">
                 Go to Dashboard
               </Link>
             ) : (
-              <Link to="/register" className="btn btn-primary btn-lg max-[480px]:w-full">
+              <Link to={ROUTES.REGISTER} className="btn btn-primary btn-lg max-[480px]:w-full">
                 Get Started Free
               </Link>
             )}
-            <Link to="/about" className="btn btn-glass btn-lg max-[480px]:w-full">
+            <Link to={ROUTES.ABOUT} className="btn btn-glass btn-lg max-[480px]:w-full">
               Learn More
             </Link>
           </div>

@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { API_CONFIG } from '@/config/api'
-import { clearCredentials } from '@/redux/slices'
+import { clearCredentials } from '@/features/auth'
 import { mockBaseQuery } from '@/services/mock/mockBaseQuery'
 
 const liveBaseQuery = fetchBaseQuery({

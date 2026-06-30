@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useAppSelector } from '@/hooks'
-import { selectCurrentUser } from '@/redux/slices'
+import { selectCurrentUser } from '@/features/auth'
 import { useLogoutMutation } from '@/store/api'
 import { UserAvatar } from '@/components/common'
 import { ROUTES } from '@/shared/constants/routes'

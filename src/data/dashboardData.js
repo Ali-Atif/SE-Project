@@ -54,15 +54,6 @@ export const analyticsChartData = [
   { month: 'Dec', users: 10200, revenue: 52000, orders: 680 },
 ]
 
-export const revenueChartData = [
-  { month: 'Jan', revenue: 24000 },
-  { month: 'Feb', revenue: 28000 },
-  { month: 'Mar', revenue: 31000 },
-  { month: 'Apr', revenue: 35000 },
-  { month: 'May', revenue: 39000 },
-  { month: 'Jun', revenue: 42000 },
-]
-
 export const recentActivity = [
   {
     id: 'act-1',

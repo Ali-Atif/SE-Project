@@ -1,12 +1,7 @@
-import { NavLink } from 'react-router-dom'
 import { useAppSelector } from '@/hooks'
 import { selectIsSidebarOpen } from '@/features/sidebar'
-import { ADMIN_NAV_ITEMS } from '@/shared/constants/navigation'
 import SidebarBrand from './SidebarBrand'
-
-function navLinkClass({ isActive }) {
-  return `admin-sidebar-link${isActive ? ' admin-sidebar-link-active' : ''}`
-}
+import SidebarNav from './SidebarNav'
 
 export default function Sidebar() {
   const isOpen = useAppSelector(selectIsSidebarOpen)
@@ -21,18 +16,7 @@ export default function Sidebar() {
         <SidebarBrand />
       </div>
 
-      <nav className="admin-sidebar-nav">
-        <ul className="m-0 list-none p-0">
-          {ADMIN_NAV_ITEMS.map(({ to, label, icon: Icon }) => (
-            <li key={to}>
-              <NavLink to={to} className={navLinkClass}>
-                <Icon className="admin-sidebar-icon shrink-0" aria-hidden="true" />
-                <span className="truncate">{label}</span>
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <SidebarNav />
     </aside>
   )
 }

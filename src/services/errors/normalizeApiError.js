@@ -1,7 +1,7 @@
 /**
  * Extract a readable error message from RTK Query mutation/query errors.
  */
-export function normalizeApiError(error, fallback = 'Something went wrong') {
+export function getApiErrorMessage(error, fallback = 'Something went wrong') {
   if (!error) return null
 
   if (typeof error.data === 'string') return error.data
@@ -9,5 +9,3 @@ export function normalizeApiError(error, fallback = 'Something went wrong') {
 
   return fallback
 }
-
-export const getApiErrorMessage = normalizeApiError

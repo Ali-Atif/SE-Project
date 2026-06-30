@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import { LogoIcon, GithubIcon, TwitterIcon, LinkedinIcon } from '@/shared/ui'
-import { LANDING_NAV_LINKS, ROUTE_SECTIONS, isLandingPath, scrollToSection } from '@/components/landing/landingNavigation'
+import { LANDING_NAV_LINKS, navigateToLandingSection } from '@/components/landing/landingNavigation'
 import { ROUTES } from '@/shared/constants/routes'
 
 const socialLinks = [
@@ -13,12 +13,7 @@ export default function Footer() {
   const location = useLocation()
 
   const handleSectionClick = (to) => {
-    if (isLandingPath(location.pathname) && location.pathname === to) {
-      const sectionId = ROUTE_SECTIONS[to]
-      if (sectionId) {
-        scrollToSection(sectionId)
-      }
-    }
+    navigateToLandingSection(location.pathname, to)
   }
 
   return (

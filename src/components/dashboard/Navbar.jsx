@@ -8,7 +8,7 @@ import {
   setSidebarOpen,
 } from '@/features/sidebar'
 import { selectUserProfile, selectNotificationCount } from '@/features/user'
-import { selectCurrentUser } from '@/redux/slices'
+import { selectCurrentUser } from '@/features/auth'
 import { ThemeToggle } from '@/shared/ui'
 import { UserAvatar } from '@/components/common'
 import { PAGE_TITLES } from '@/shared/constants/navigation'

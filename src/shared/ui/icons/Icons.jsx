@@ -28,28 +28,6 @@ export function MenuIcon({ className = '' }) {
   )
 }
 
-export function SidebarToggleIcon({ className = '', isOpen = false }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.25"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M3 6h11M3 12h7M3 18h11" />
-      {isOpen ? (
-        <path d="M15 8l4 4-4 4" />
-      ) : (
-        <path d="M21 8l-4 4 4 4" />
-      )}
-    </svg>
-  )
-}
-
 export function CloseIcon({ className = '' }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
