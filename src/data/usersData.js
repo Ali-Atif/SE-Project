@@ -1,0 +1,58 @@
+export const usersData = [
+  {
+    id: 1,
+    name: 'Sarah Chen',
+    email: 'sarah.chen@acme.io',
+    role: 'Admin',
+    status: 'Active',
+  },
+  {
+    id: 2,
+    name: 'James Wilson',
+    email: 'james.wilson@acme.io',
+    role: 'Editor',
+    status: 'Active',
+  },
+  {
+    id: 3,
+    name: 'Emily Davis',
+    email: 'emily.davis@acme.io',
+    role: 'Viewer',
+    status: 'Active',
+  },
+  {
+    id: 4,
+    name: 'Michael Brown',
+    email: 'michael.brown@acme.io',
+    role: 'Editor',
+    status: 'Inactive',
+  },
+  {
+    id: 5,
+    name: 'Lisa Anderson',
+    email: 'lisa.anderson@acme.io',
+    role: 'Admin',
+    status: 'Active',
+  },
+  {
+    id: 6,
+    name: 'David Kim',
+    email: 'david.kim@acme.io',
+    role: 'Viewer',
+    status: 'Active',
+  },
+  {
+    id: 7,
+    name: 'Rachel Green',
+    email: 'rachel.green@acme.io',
+    role: 'Editor',
+    status: 'Pending',
+  },
+  {
+    id: 8,
+    name: 'Tom Harris',
+    email: 'tom.harris@acme.io',
+    role: 'Viewer',
+    status: 'Active',
+  },
+]

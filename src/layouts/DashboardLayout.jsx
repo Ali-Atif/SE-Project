@@ -1,21 +1,29 @@
 import { Outlet } from 'react-router-dom'
-import { DashboardNavbar } from '@/components/common'
+import { useAppSelector } from '@/hooks'
+import { selectIsSidebarOpen } from '@/features/sidebar'
+import { Sidebar, MobileSidebar, Navbar } from '@/components/dashboard'
+import ScrollToTop from '@/routes/ScrollToTop'
 import { useTheme } from '@/hooks/useTheme'
 
 export default function DashboardLayout() {
   const { theme, isDark } = useTheme()
+  const isSidebarOpen = useAppSelector(selectIsSidebarOpen)
 
   return (
     <div
-      className={`dashboard-theme w-full min-h-full${isDark ? ' dark' : ''}`}
+      className={`dashboard-theme admin-layout${isSidebarOpen ? '' : ' admin-layout-sidebar-closed'}${isDark ? ' dark' : ''}`}
       data-theme={theme}
     >
-      <section className="page-section">
-        <div className="container-app">
-          <DashboardNavbar />
+      <ScrollToTop />
+      <Sidebar />
+      <MobileSidebar />
+
+      <div className="admin-shell">
+        <Navbar />
+        <main className="admin-content">
           <Outlet />
-        </div>
-      </section>
+        </main>
+      </div>
     </div>
   )
 }

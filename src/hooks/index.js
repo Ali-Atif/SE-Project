@@ -1,4 +1,6 @@
+export { useChartAnimation } from './useChartAnimation'
 export { useAppDispatch } from './useAppDispatch'
 export { useAppSelector } from './useAppSelector'
 export { useLandingSectionScroll } from './useLandingSectionScroll'
+export { useStableTableScroll } from './useStableTableScroll'
 export { useTheme } from './useTheme'

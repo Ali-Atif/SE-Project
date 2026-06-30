@@ -1,0 +1,115 @@
+import { Users, DollarSign, ShoppingCart, Activity } from 'lucide-react'
+
+export const statsCards = [
+  {
+    id: 'total-users',
+    title: 'Total Users',
+    value: '12,847',
+    change: '+12.5%',
+    trend: 'up',
+    icon: Users,
+    description: 'vs last month',
+  },
+  {
+    id: 'revenue',
+    title: 'Revenue',
+    value: '$48,290',
+    change: '+8.2%',
+    trend: 'up',
+    icon: DollarSign,
+    description: 'vs last month',
+  },
+  {
+    id: 'orders',
+    title: 'Orders',
+    value: '1,429',
+    change: '+4.1%',
+    trend: 'up',
+    icon: ShoppingCart,
+    description: 'vs last month',
+  },
+  {
+    id: 'active-users',
+    title: 'Active Users',
+    value: '3,218',
+    change: '-2.4%',
+    trend: 'down',
+    icon: Activity,
+    description: 'vs last month',
+  },
+]
+
+export const analyticsChartData = [
+  { month: 'Jan', users: 4200, revenue: 24000, orders: 320 },
+  { month: 'Feb', users: 4800, revenue: 28000, orders: 380 },
+  { month: 'Mar', users: 5100, revenue: 31000, orders: 410 },
+  { month: 'Apr', users: 5600, revenue: 35000, orders: 450 },
+  { month: 'May', users: 6200, revenue: 39000, orders: 490 },
+  { month: 'Jun', users: 6800, revenue: 42000, orders: 520 },
+  { month: 'Jul', users: 7200, revenue: 45000, orders: 560 },
+  { month: 'Aug', users: 7800, revenue: 47000, orders: 590 },
+  { month: 'Sep', users: 8200, revenue: 46000, orders: 570 },
+  { month: 'Oct', users: 8800, revenue: 48000, orders: 610 },
+  { month: 'Nov', users: 9400, revenue: 50000, orders: 640 },
+  { month: 'Dec', users: 10200, revenue: 52000, orders: 680 },
+]
+
+export const revenueChartData = [
+  { month: 'Jan', revenue: 24000 },
+  { month: 'Feb', revenue: 28000 },
+  { month: 'Mar', revenue: 31000 },
+  { month: 'Apr', revenue: 35000 },
+  { month: 'May', revenue: 39000 },
+  { month: 'Jun', revenue: 42000 },
+]
+
+export const recentActivity = [
+  {
+    id: 'act-1',
+    user: 'Sarah Chen',
+    action: 'Created new project',
+    target: 'Marketing Campaign Q2',
+    time: '2 min ago',
+    status: 'success',
+  },
+  {
+    id: 'act-2',
+    user: 'James Wilson',
+    action: 'Updated user role',
+    target: 'Editor → Admin',
+    time: '15 min ago',
+    status: 'info',
+  },
+  {
+    id: 'act-3',
+    user: 'Emily Davis',
+    action: 'Completed order',
+    target: '#ORD-2847',
+    time: '32 min ago',
+    status: 'success',
+  },
+  {
+    id: 'act-4',
+    user: 'Michael Brown',
+    action: 'Failed payment',
+    target: '#PAY-1923',
+    time: '1 hr ago',
+    status: 'error',
+  },
+  {
+    id: 'act-5',
+    user: 'Lisa Anderson',
+    action: 'Submitted report',
+    target: 'Monthly Analytics',
+    time: '2 hrs ago',
+    status: 'success',
+  },
+  {
+    id: 'act-6',
+    user: 'David Kim',
+    action: 'Invited team member',
+    target: 'rachel@acme.io',
+    time: '3 hrs ago',
+    status: 'info',
+  },
+]

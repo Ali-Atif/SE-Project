@@ -20,7 +20,8 @@ export default function Profile() {
   }
 
   return (
-    <div className="card container-narrow mx-auto">
+    <div className="admin-page">
+      <div className="admin-card container-narrow mx-auto max-w-lg">
       <div className="mb-8 flex flex-col items-center gap-4 border-b border-border pb-8 text-center sm:flex-row sm:text-left">
         <UserAvatar
           user={user}
@@ -60,6 +61,7 @@ export default function Profile() {
         >
           {isLoading ? 'Logging out…' : 'Logout'}
         </button>
+      </div>
       </div>
     </div>
   )

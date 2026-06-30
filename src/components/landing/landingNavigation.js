@@ -7,9 +7,9 @@ export function isLandingPath(pathname) {
 }
 
 export function getNavbarOffset() {
-  const value = getComputedStyle(document.documentElement).getPropertyValue('--navbar-height')
+  const value = getComputedStyle(document.documentElement).getPropertyValue('--spacing-navbar')
   const parsed = parseFloat(value)
-  return Number.isFinite(parsed) ? parsed : 72
+  return Number.isFinite(parsed) ? parsed : 56
 }
 
 let activeScrollFrame = null

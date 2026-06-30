@@ -5,6 +5,9 @@ export const ROUTES = {
   LOGIN: '/login',
   REGISTER: '/register',
   DASHBOARD: '/dashboard',
+  USERS: '/users',
+  ANALYTICS: '/analytics',
+  SETTINGS: '/settings',
   PROFILE: '/profile',
 }
 

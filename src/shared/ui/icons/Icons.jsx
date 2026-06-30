@@ -1,13 +1,17 @@
+import { useId } from 'react'
+
 export function LogoIcon({ className = '' }) {
+  const gradientId = useId()
+
   return (
     <svg className={className} viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <rect width="32" height="32" rx="8" fill="url(#logo-gradient)" />
+      <rect width="32" height="32" rx="8" fill={`url(#${gradientId})`} />
       <path
         d="M8 22V10l8 6 8-6v12h-3.5V14.5L16 19l-4.5-4.5V22H8z"
         fill="white"
       />
       <defs>
-        <linearGradient id="logo-gradient" x1="0" y1="0" x2="32" y2="32">
+        <linearGradient id={gradientId} x1="0" y1="0" x2="32" y2="32">
           <stop stopColor="#0d9488" />
           <stop offset="1" stopColor="#10b981" />
         </linearGradient>
@@ -20,6 +24,28 @@ export function MenuIcon({ className = '' }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
       <path d="M4 6h16M4 12h16M4 18h16" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+export function SidebarToggleIcon({ className = '', isOpen = false }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.25"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M3 6h11M3 12h7M3 18h11" />
+      {isOpen ? (
+        <path d="M15 8l4 4-4 4" />
+      ) : (
+        <path d="M21 8l-4 4 4 4" />
+      )}
     </svg>
   )
 }
