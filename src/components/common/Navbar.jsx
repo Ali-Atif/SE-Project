@@ -107,13 +107,16 @@ export default function Navbar() {
         <div className="container-app landing-navbar-inner justify-between gap-4">
           <Link
             to={ROUTES.HOME}
-            className={`flex items-center gap-2 text-lg font-bold text-text no-underline transition-opacity duration-200 hover:text-primary hover:no-underline${menuOpen ? ' pointer-events-none opacity-0' : ''}`}
+            className="flex items-center gap-2 text-lg font-bold text-text no-underline transition-colors duration-200 hover:text-primary hover:no-underline"
+            onClick={closeMenu}
             aria-label="SE Project home"
-            aria-hidden={menuOpen}
-            tabIndex={menuOpen ? -1 : undefined}
           >
             <LogoIcon className="h-8 w-8 shrink-0" />
-            <span className="navbar-brand-text whitespace-nowrap max-[360px]:hidden">SE Project</span>
+            <span
+              className={`navbar-brand-text whitespace-nowrap${menuOpen ? '' : ' max-[360px]:hidden'}`}
+            >
+              SE Project
+            </span>
           </Link>
 
           <div className="ml-auto flex items-center gap-2">
@@ -135,7 +138,7 @@ export default function Navbar() {
             {isAuthenticated && (
               <NavbarProfile
                 user={user}
-                className="flex gap-1 p-1 lg:hidden [&_.user-avatar]:h-9 [&_.user-avatar]:w-9 [&_.user-avatar]:text-xs [&_span]:max-w-24"
+                className={`flex gap-1 p-1 lg:hidden [&_.user-avatar]:h-9 [&_.user-avatar]:w-9 [&_.user-avatar]:text-xs [&_span]:max-w-24${menuOpen ? ' hidden' : ''}`}
                 onClick={closeMenu}
               />
             )}

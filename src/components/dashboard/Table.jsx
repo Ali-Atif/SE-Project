@@ -1,11 +1,11 @@
 import { useStableTableScroll } from '@/hooks'
 
 const statusStyles = {
-  Active: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400',
+  Active: 'badge-success',
   Inactive: 'bg-slate-500/10 text-slate-600 dark:text-slate-400',
-  Pending: 'bg-amber-500/10 text-amber-700 dark:text-amber-400',
-  success: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400',
-  info: 'bg-blue-500/10 text-blue-700 dark:text-blue-400',
+  Pending: 'badge-warning',
+  success: 'badge-success',
+  info: 'badge-info',
   error: 'bg-red-500/10 text-red-700 dark:text-red-400',
 }
 

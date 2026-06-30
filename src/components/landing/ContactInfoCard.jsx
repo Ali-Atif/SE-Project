@@ -14,7 +14,7 @@ export default function ContactInfoCard({ icon: Icon, title, value, href }) {
         <h3 className="mb-1 text-[0.8125rem] font-semibold tracking-wide text-text-muted uppercase">
           {title}
         </h3>
-        <p className="m-0 text-[0.9375rem] font-medium break-words text-text">{value}</p>
+        <p className="m-0 text-[0.9375rem] font-medium wrap-break-words text-text">{value}</p>
       </div>
     </>
   )

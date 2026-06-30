@@ -12,8 +12,8 @@ export function LogoIcon({ className = '' }) {
       />
       <defs>
         <linearGradient id={gradientId} x1="0" y1="0" x2="32" y2="32">
-          <stop stopColor="#0d9488" />
-          <stop offset="1" stopColor="#10b981" />
+          <stop stopColor="#4f6df5" />
+          <stop offset="1" stopColor="#6b7fd7" />
         </linearGradient>
       </defs>
     </svg>

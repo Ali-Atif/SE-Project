@@ -51,10 +51,10 @@ export const monthlyRevenueData = [
 ]
 
 export const progressMetrics = [
-  { label: 'Sales Target', value: 87, color: '#0d9488' },
-  { label: 'Customer Satisfaction', value: 94, color: '#10b981' },
-  { label: 'Project Completion', value: 72, color: '#34d399' },
-  { label: 'Team Utilization', value: 81, color: '#14b8a6' },
+  { label: 'Sales Target', value: 87, color: 'var(--color-chart-1)' },
+  { label: 'Customer Satisfaction', value: 94, color: 'var(--color-chart-2)' },
+  { label: 'Project Completion', value: 72, color: 'var(--color-chart-3)' },
+  { label: 'Team Utilization', value: 81, color: 'var(--color-chart-4)' },
 ]
 
 export const monthlyReports = [

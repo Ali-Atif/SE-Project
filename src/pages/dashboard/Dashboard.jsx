@@ -22,7 +22,7 @@ import {
   StatusBadge,
   PageHeader,
 } from '@/components/dashboard'
-import { CHART_MARGIN, CHART_TOOLTIP_STYLE } from '@/shared/constants/charts'
+import { CHART_MARGIN, CHART_TOOLTIP_STYLE, CHART_COLORS } from '@/shared/constants/charts'
 
 const activityColumns = [
   { key: 'user', label: 'User' },
@@ -65,8 +65,8 @@ export default function Dashboard() {
             <AreaChart data={analyticsData} margin={CHART_MARGIN}>
               <defs>
                 <linearGradient id="revenueGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#0d9488" stopOpacity={0.3} />
-                  <stop offset="95%" stopColor="#0d9488" stopOpacity={0} />
+                  <stop offset="5%" stopColor={CHART_COLORS.primary} stopOpacity={0.25} />
+                  <stop offset="95%" stopColor={CHART_COLORS.primary} stopOpacity={0} />
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border)" />
@@ -89,7 +89,7 @@ export default function Dashboard() {
               <Area
                 type="monotone"
                 dataKey="revenue"
-                stroke="#0d9488"
+                stroke={CHART_COLORS.primary}
                 strokeWidth={2}
                 fill="url(#revenueGradient)"
                 {...chartAnimation}
@@ -116,7 +116,7 @@ export default function Dashboard() {
               <Tooltip contentStyle={CHART_TOOLTIP_STYLE} />
               <Bar
                 dataKey="users"
-                fill="#10b981"
+                fill={CHART_COLORS.secondary}
                 radius={[4, 4, 0, 0]}
                 {...chartAnimation}
               />

@@ -17,7 +17,7 @@ import {
   progressMetrics,
   monthlyReports,
 } from '@/data/analyticsData'
-import { CHART_MARGIN, CHART_TOOLTIP_STYLE } from '@/shared/constants/charts'
+import { CHART_MARGIN, CHART_TOOLTIP_STYLE, CHART_COLORS } from '@/shared/constants/charts'
 
 const reportColumns = [
   { key: 'month', label: 'Month' },
@@ -27,7 +27,7 @@ const reportColumns = [
     key: 'growth',
     label: 'Growth',
     render: (row) => (
-      <span className="font-medium text-emerald-600 dark:text-emerald-400">
+      <span className="font-medium text-success">
         {row.growth}
       </span>
     ),
@@ -79,16 +79,16 @@ export default function Analytics() {
               <Line
                 type="monotone"
                 dataKey="revenue"
-                stroke="#0d9488"
+                stroke={CHART_COLORS.primary}
                 strokeWidth={2}
-                dot={{ fill: '#0d9488', r: 4 }}
+                dot={{ fill: CHART_COLORS.primary, r: 4 }}
                 name="Revenue"
                 {...chartAnimation}
               />
               <Line
                 type="monotone"
                 dataKey="target"
-                stroke="#94a3b8"
+                stroke={CHART_COLORS.muted}
                 strokeWidth={2}
                 strokeDasharray="5 5"
                 dot={false}
@@ -104,8 +104,8 @@ export default function Analytics() {
             <AreaChart data={monthlyRevenueData.slice(0, 6)} margin={CHART_MARGIN}>
               <defs>
                 <linearGradient id="analyticsGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#10b981" stopOpacity={0.3} />
-                  <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
+                  <stop offset="5%" stopColor={CHART_COLORS.primary} stopOpacity={0.25} />
+                  <stop offset="95%" stopColor={CHART_COLORS.primary} stopOpacity={0} />
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border)" />
@@ -128,7 +128,7 @@ export default function Analytics() {
               <Area
                 type="monotone"
                 dataKey="revenue"
-                stroke="#10b981"
+                stroke={CHART_COLORS.primary}
                 strokeWidth={2}
                 fill="url(#analyticsGradient)"
                 {...chartAnimation}
